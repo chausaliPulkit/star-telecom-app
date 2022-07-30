@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="me.asiimwedismas.startelecom.feature.login">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="me.asiimwedismas.startelecom.feature.login">
+
+    <application>
+        <activity
+            android:name=".Login"
+            android:exported="false"
+            android:label="@string/title_activity_login"
+            android:theme="@style/Theme.STApp" />
+    </application>
 
 </manifest>
