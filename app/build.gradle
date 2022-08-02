@@ -28,7 +28,6 @@ android {
         productFlavors {
             demo {
                 dimension "demo"
-                applicationIdSuffix = ".demo"
             }
         }
     }
