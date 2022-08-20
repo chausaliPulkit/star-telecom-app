@@ -7,7 +7,13 @@
             android:name=".Login"
             android:exported="false"
             android:label="@string/title_activity_login"
-            android:theme="@style/Theme.STApp" />
+            android:theme="@style/Theme.STApp">
+            <intent-filter>
+                <action android:name="me.asiimwedismas.startelecom.login.open"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>

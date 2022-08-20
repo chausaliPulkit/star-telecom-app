@@ -33,7 +33,7 @@ class CredentialsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonFirst.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            findNavController().navigate(R.id.action_CredentialsFragment_to_VerificationFragment)
         }
     }
 
