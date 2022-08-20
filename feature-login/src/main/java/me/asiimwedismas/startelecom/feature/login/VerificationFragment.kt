@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import me.asiimwedismas.startelecom.feature.login.databinding.FragmentVerificationBinding
 
 /**
@@ -32,8 +32,20 @@ class VerificationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonSecond.setOnClickListener {
-            findNavController().navigate(R.id.action_VerificationFragment_to_CredentialsFragment)
+        binding.editTextVerificationSMSCode.doAfterTextChanged {
+
+        }
+
+        binding.buttonVerifyCode.setOnClickListener {
+
+        }
+
+        binding.buttonChangeLoginCredentials.setOnClickListener {
+
+        }
+
+        binding.buttonRequestAnotherCode.setOnClickListener {
+
         }
     }
 

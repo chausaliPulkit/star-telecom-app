@@ -2,12 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="me.asiimwedismas.startelecom.feature.login">
 
-    <application>
+    <application
+        android:theme="@style/Theme.STApp">
         <activity
             android:name=".Login"
             android:exported="false"
-            android:label="@string/title_activity_login"
-            android:theme="@style/Theme.STApp">
+            android:label="@string/title_activity_login">
             <intent-filter>
                 <action android:name="me.asiimwedismas.startelecom.login.open"/>
                 <category android:name="android.intent.category.DEFAULT"/>

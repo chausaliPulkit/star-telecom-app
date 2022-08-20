@@ -1,8 +1,7 @@
 <resources>
     <string name="title_activity_login">login</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="credentials_fragment_label">Credentials Fragment</string>
-    <string name="verification_fragment_label">Verifications Fragment</string>
-    <string name="next">To verifications</string>
-    <string name="previous">To credentials</string>
+    <string name="credentials_fragment_label">Credentials</string>
+    <string name="verification_fragment_label">Verification</string>
+    <string name="sign_in_main_message">Enter your username to verify, we will send you a verification code via SMS, you may be charged for the SMS by your carrier (Maybe, am not sure).</string>
 </resources>
