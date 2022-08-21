@@ -1,5 +1,5 @@
 plugins {
-    id 'stapp-feature-convention'
+    id 'stapp-feature-plugin'
 }
 
 dependencies {

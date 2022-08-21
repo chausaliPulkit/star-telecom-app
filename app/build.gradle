@@ -1,7 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'stapp-firebase-library'
+    id 'stapp-hilt-plugin'
+    id 'stapp-firebase-plugin'
 }
 
 android {
