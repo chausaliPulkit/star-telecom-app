@@ -6,10 +6,21 @@ plugins {
 }
 
 android {
+
     defaultConfig {
         applicationId "me.asiimwedismas.startelecom"
         versionCode 1
         versionName "1.0"
+    }
+    buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+        }
+
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
     }
     buildFeatures {
         viewBinding true

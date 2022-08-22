@@ -1,12 +1,12 @@
 package me.asiimwedismas.startelecom.core.model
 
 data class StaffMember(
-    override val date: String,
-    override val utc: Long,
-    override val document_id: String,
-    override val document_author_id: String,
-    override val document_author_name: String,
-    override val isLocked: Boolean,
+    override val date: String ="",
+    override val utc: Long =0L,
+    override val document_id: String ="",
+    override val document_author_id: String ="",
+    override val document_author_name: String ="",
+    override val isLocked: Boolean = false,
     val full_name: String = "",
     val fcm_token: String = "",
     val position: String = "",

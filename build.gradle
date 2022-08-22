@@ -17,6 +17,14 @@ buildscript {
     }
 }// Top-level build file where you can add configuration options common to all sub-projects/modules.
 
+def keystorePropertiesFile = rootProject.file("./secrets/keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+def appPropertiesFile = rootProject.file("./config/app-settings.properties")
+def appProperties = new Properties()
+appProperties.load(new FileInputStream(appPropertiesFile))
+
 subprojects {
     afterEvaluate { project ->
         if (project.hasProperty('android')) {
@@ -26,21 +34,45 @@ subprojects {
                 defaultConfig {
                     minSdkVersion 21
                     targetSdkVersion 32
+                    versionCode appProperties['app.version.code'] as int
+                    versionName appProperties['app.version.name']
+
                     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+                    vectorDrawables {
+                        useSupportLibrary true
+                    }
+
+                    def buildVariant = getBuildVariant()
+                    def environmentPath
+                    if ((buildVariant == "Release")) {
+                        environmentPath = appProperties["env.path.live"]
+                    } else if ((buildVariant == "Debug")) {
+                        environmentPath = appProperties["env.path.dev"]
+                    } else {
+                        environmentPath = appProperties["env.path.live"]
+                    }
+
+                    def envPropertiesFile = rootProject.file("./config/"+ environmentPath)
+                    def envProperties = new Properties()
+                    envProperties.load(new FileInputStream(envPropertiesFile))
+                    println("buildVariant = $buildVariant")
+
+                    for (String key : envProperties.keySet()) {
+                        println(key +" = "+ envProperties[key])
+                        buildConfigField "String", key.replaceAll("\\.", "_").toUpperCase(), envProperties[key]
+                    }
                 }
 
-                buildTypes {
-                    release {
-                        minifyEnabled false
-                        proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-                    }
-                    flavorDimensions "demo"
 
-                    // If you need to add more flavors, consider using flavor dimensions.
-                    productFlavors {
-                        demo {
-                            dimension "demo"
-                        }
+                buildTypes {
+                    debug {
+                        manifestPlaceholders = [appName: "stapp-debug"]
+                    }
+
+                    release {
+                        manifestPlaceholders = [appName: "@string/app_name"]
+                        minifyEnabled true
+                        proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
                     }
                 }
 
@@ -61,4 +93,18 @@ subprojects {
             }
         }
     }
+}
+
+def getBuildVariant() {
+    for (TaskExecutionRequest t : gradle.getStartParameter().getTaskRequests()) {
+        for (String command : t.args) {
+            if (command.matches(":app:generate(.*)Sources")) {
+                return command.replaceAll(":app:generate(.*)Sources", "\$1")
+            } else if (command.matches(":app:assemble(.*)")) {
+                return command.replaceAll(":app:assemble(.*)", "\$1")
+            }
+        }
+    }
+
+    return "Release"
 }
