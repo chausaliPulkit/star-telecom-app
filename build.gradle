@@ -55,10 +55,8 @@ subprojects {
                     def envPropertiesFile = rootProject.file("./config/"+ environmentPath)
                     def envProperties = new Properties()
                     envProperties.load(new FileInputStream(envPropertiesFile))
-                    println("buildVariant = $buildVariant")
 
                     for (String key : envProperties.keySet()) {
-                        println(key +" = "+ envProperties[key])
                         buildConfigField "String", key.replaceAll("\\.", "_").toUpperCase(), envProperties[key]
                     }
                 }

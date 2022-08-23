@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'stapp-hilt-plugin'
 }
 
 android {
@@ -30,6 +32,13 @@ android {
 }
 
 dependencies {
+
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    implementation project(path: ':core-model')
+    kapt(libs.room.compiler)
+    implementation(libs.kotlinx.coroutines.android)
+
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.2'
