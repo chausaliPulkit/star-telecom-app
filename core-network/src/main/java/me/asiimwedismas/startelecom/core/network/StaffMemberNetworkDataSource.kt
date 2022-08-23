@@ -7,7 +7,9 @@ interface StaffMemberNetworkDataSource {
 
     suspend fun authenticateUser(username: String, password: String): Resource<StaffMember>
 
-    suspend fun saveStaffMember(member: StaffMember) : Resource<Boolean>
+    suspend fun save(member: StaffMember) : Resource<Boolean>
+
+    suspend fun save(members: List<StaffMember>): Resource<Boolean>
 
     suspend fun getAllStaff(): Resource<List<StaffMember>>
 }
