@@ -29,12 +29,12 @@ interface DataModule {
 
     @Binds
     fun bindsStaffMemberRepository(
-        topicsRepository: StaffMemberRepositoryImpl
+        repository: StaffMemberRepositoryImpl
     ): StaffMemberRepository
 
 //    @Binds
-//    fun bindsAuthorsRepository(
-//        authorsRepository: OfflineFirstAuthorsRepository
+//    fun bindsAccessoriesRepository(
+//        repository: OfflineFirstAuthorsRepository
 //    ): AuthorsRepository
 //
 //    @Binds

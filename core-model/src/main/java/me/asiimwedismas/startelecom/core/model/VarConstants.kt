@@ -1,6 +1,7 @@
 package me.asiimwedismas.startelecom.core.model
 
 object VarConstants {
+    const val ACCESSORIES = "ACCESSORIES"
     const val DELETED_STOCK_RECORDS = "DELETED_STOCK_RECORDS"
     const val DEBT_COLLECTIONS = "DEBT_COLLECTIONS"
     const val BULK_REPAIRS_SHEETS = "BULK_REPAIRS_SHEETS"

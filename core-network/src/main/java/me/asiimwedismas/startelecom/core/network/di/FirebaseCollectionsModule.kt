@@ -9,6 +9,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import me.asiimwedismas.startelecom.core.common.BuildConfig
 import me.asiimwedismas.startelecom.core.model.VarConstants
+import me.asiimwedismas.startelecom.core.model.VarConstants.SHOP_ACTIVITIES
 import javax.inject.Named
 import javax.inject.Qualifier
 import javax.inject.Singleton
@@ -28,7 +29,7 @@ object FirebaseCollectionsModule {
     @DayExpenditureCollection
     fun provideDayExpenditureCollection(
         @Named("databaseCollection") baseDB: CollectionReference
-    ) = baseDB.document(VarConstants.SHOP_ACTIVITIES).collection(VarConstants.EXPENDITURES)
+    ) = baseDB.document(SHOP_ACTIVITIES).collection(VarConstants.EXPENDITURES)
 
 
     @Provides
@@ -36,28 +37,28 @@ object FirebaseCollectionsModule {
     @CatalogueCollection
     fun provideCatalogueCollection(
         @Named("databaseCollection") baseDB: CollectionReference
-    ) = baseDB.document(VarConstants.SHOP_ACTIVITIES).collection(VarConstants.PRODUCT_CATALOGUE)
+    ) = baseDB.document(SHOP_ACTIVITIES).collection(VarConstants.PRODUCT_CATALOGUE)
 
     @Provides
     @Singleton
     @MobileMoneyCollections
     fun provideMobileMoneyCollections(
         @Named("databaseCollection") baseDB: CollectionReference
-    ) = baseDB.document(VarConstants.SHOP_ACTIVITIES).collection(VarConstants.MOBILE_MONEY)
+    ) = baseDB.document(SHOP_ACTIVITIES).collection(VarConstants.MOBILE_MONEY)
 
     @Provides
     @Singleton
     @IncompleteRepairsCollection
     fun provideIncompleteRepairsCollection(
         @Named("databaseCollection") baseDB: CollectionReference
-    ) = baseDB.document(VarConstants.SHOP_ACTIVITIES).collection(VarConstants.INCOMPLETE_REPAIRS)
+    ) = baseDB.document(SHOP_ACTIVITIES).collection(VarConstants.INCOMPLETE_REPAIRS)
 
     @Provides
     @Singleton
     @CompleteRepairsCollection
     fun provideCompleteRepairsCollection(
         @Named("databaseCollection") baseDB: CollectionReference
-    ) = baseDB.document(VarConstants.SHOP_ACTIVITIES)
+    ) = baseDB.document(SHOP_ACTIVITIES)
         .collection(VarConstants.PAID_REPAIR_COMMISSIONS)
 
     @Provides
@@ -65,58 +66,69 @@ object FirebaseCollectionsModule {
     @BulkRepairsCollections
     fun provideBulkRepairsCollections(
         @Named("databaseCollection") baseDB: CollectionReference
-    ) = baseDB.document(VarConstants.SHOP_ACTIVITIES).collection(VarConstants.BULK_REPAIRS_SHEETS)
+    ) = baseDB.document(SHOP_ACTIVITIES).collection(VarConstants.BULK_REPAIRS_SHEETS)
 
     @Provides
     @Singleton
     @PartialSalesCollection
     fun providePartialSalesCollection(
         @Named("databaseCollection") baseDB: CollectionReference
-    ) = baseDB.document(VarConstants.SHOP_ACTIVITIES).collection(VarConstants.PARTIAL_PAID_SALES)
+    ) = baseDB.document(SHOP_ACTIVITIES).collection(VarConstants.PARTIAL_PAID_SALES)
 
     @Provides
     @Singleton
     @DebtCollection
     fun provideDebtCollection(
         @Named("databaseCollection") baseDB: CollectionReference
-    ) = baseDB.document(VarConstants.SHOP_ACTIVITIES).collection(VarConstants.DEBT_COLLECTIONS)
+    ) = baseDB.document(SHOP_ACTIVITIES).collection(VarConstants.DEBT_COLLECTIONS)
 
     @Provides
     @Singleton
     @CompleteSalesCollection
     fun provideCompleteSalesCollection(
         @Named("databaseCollection") baseDB: CollectionReference
-    ) = baseDB.document(VarConstants.SHOP_ACTIVITIES).collection(VarConstants.COMPLETE_PAID_SALES)
+    ) = baseDB.document(SHOP_ACTIVITIES).collection(VarConstants.COMPLETE_PAID_SALES)
 
     @Provides
     @Singleton
     @StaffCollection
     fun provideStaffCollection(
         @Named("databaseCollection") baseDB: CollectionReference
-    ) = baseDB.document(VarConstants.SHOP_ACTIVITIES).collection(VarConstants.HR)
+    ) = baseDB.document(SHOP_ACTIVITIES).collection(VarConstants.HR)
 
     @Provides
     @Singleton
     @StockCollection
     fun provideStockCollection(
         @Named("databaseCollection") baseDB: CollectionReference
-    ) = baseDB.document(VarConstants.SHOP_ACTIVITIES).collection(VarConstants.STOCk)
+    ) = baseDB.document(SHOP_ACTIVITIES).collection(VarConstants.STOCk)
 
     @Provides
     @Singleton
     @StockRecordsCollection
     fun provideStockRecordsCollection(
         @Named("databaseCollection") baseDB: CollectionReference
-    ) = baseDB.document(VarConstants.SHOP_ACTIVITIES).collection(VarConstants.STOCK_RECORDS)
+    ) = baseDB.document(SHOP_ACTIVITIES).collection(VarConstants.STOCK_RECORDS)
 
     @Provides
     @Singleton
     @DeletedStockCollection
     fun provideDeletedStockCollection(
         @Named("databaseCollection") baseDB: CollectionReference
-    ) = baseDB.document(VarConstants.SHOP_ACTIVITIES).collection(VarConstants.DELETED_STOCK_RECORDS)
+    ) = baseDB.document(SHOP_ACTIVITIES).collection(VarConstants.DELETED_STOCK_RECORDS)
+
+    @Provides
+    @Singleton
+    @AccessoriesCollection
+    fun providesAccessoriesCollection(
+        @Named("databaseCollection") baseDB: CollectionReference
+    ) = baseDB.document(SHOP_ACTIVITIES).collection(VarConstants.ACCESSORIES)
 
 }
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class AccessoriesCollection
 
 @Qualifier
 @Retention(AnnotationRetention.BINARY)
