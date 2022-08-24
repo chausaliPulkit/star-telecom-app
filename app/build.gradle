@@ -13,9 +13,9 @@ android {
         versionName "1.0"
     }
     buildTypes {
-        debug {
-            applicationIdSuffix ".debug"
-        }
+//        debug {
+//            applicationIdSuffix ".debug"
+//        }
 
         release {
             minifyEnabled true
