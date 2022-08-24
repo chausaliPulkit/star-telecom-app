@@ -1,5 +1,11 @@
 package me.asiimwedismas.startelecom.core.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(
+    tableName = "staff_members"
+)
 data class StaffMember(
     override val date: String ="",
     override val utc: Long =0L,
@@ -13,7 +19,7 @@ data class StaffMember(
     val phone_number: String = "",
     val read_rights: List<String> = ArrayList(),
     val write_rights: List<String> = ArrayList(),
-    val username: String = "",
+    @PrimaryKey val username: String = "",
     val password: String = "",
     val has_eps_access: Boolean = false,
 ) : BaseDocument(){

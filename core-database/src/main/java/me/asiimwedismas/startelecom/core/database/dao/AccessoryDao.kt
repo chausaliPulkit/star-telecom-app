@@ -8,13 +8,13 @@ import me.asiimwedismas.startelecom.core.model.Accessory
 interface AccessoryDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(products: List<Accessory>)
+    suspend fun insert(accessory: List<Accessory>)
 
     @Update
-    suspend fun update(products: List<Accessory>)
+    suspend fun update(accessory: List<Accessory>)
 
     @Delete
-    suspend fun delete(products: List<Accessory>)
+    suspend fun delete(accessory: List<Accessory>)
 
     @Query("SELECT * FROM accessories ORDER BY name")
     fun getAllProducts(): LiveData<List<Accessory>>

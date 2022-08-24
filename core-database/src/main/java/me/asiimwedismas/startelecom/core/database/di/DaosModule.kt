@@ -6,6 +6,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import me.asiimwedismas.startelecom.core.database.STAppDatabase
 import me.asiimwedismas.startelecom.core.database.dao.AccessoryDao
+import me.asiimwedismas.startelecom.core.database.dao.StaffMemberDao
 import javax.inject.Singleton
 
 @Module
@@ -15,4 +16,9 @@ object DaosModule {
     fun provideAccessoryDao(
         database: STAppDatabase
     ): AccessoryDao = database.accessoryDao()
+
+    @Provides
+    fun providesStaffMemberDao(
+        database: STAppDatabase
+    ): StaffMemberDao = database.staffMemberDao()
 }
