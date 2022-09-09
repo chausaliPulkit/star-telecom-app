@@ -24,8 +24,8 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
 
+        startActivity(Actions.openAccessoriesIntent(this))
         binding.fab.setOnClickListener { view ->
-            startActivity(Actions.openLoginIntent(this))
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAnchorView(R.id.fab)
                 .setAction("Action", null).show()
