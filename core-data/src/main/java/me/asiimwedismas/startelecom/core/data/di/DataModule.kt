@@ -20,6 +20,8 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import me.asiimwedismas.startelecom.core.data.repository.AccessoryRepository
+import me.asiimwedismas.startelecom.core.data.repository.AccessoryRepositoryImpl
 import me.asiimwedismas.startelecom.core.data.repository.StaffMemberRepository
 import me.asiimwedismas.startelecom.core.data.repository.StaffMemberRepositoryImpl
 
@@ -31,6 +33,11 @@ interface DataModule {
     fun bindsStaffMemberRepository(
         repository: StaffMemberRepositoryImpl
     ): StaffMemberRepository
+
+    @Binds
+    fun bindsAccessoryRepository(
+        repository: AccessoryRepositoryImpl
+    ): AccessoryRepository
 
 //    @Binds
 //    fun bindsAccessoriesRepository(
