@@ -15,5 +15,6 @@ data class Accessory(
     override val isLocked: Boolean = false,
     @PrimaryKey val name: String = "",
     val recommended_price: Int = 0,
-    val minimum_price: Int = 0
+    val minimum_price: Int = 0,
+    val stock_balance: Int = 0
 ) : BaseDocument()
