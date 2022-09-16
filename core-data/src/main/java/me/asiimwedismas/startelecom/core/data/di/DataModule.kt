@@ -20,10 +20,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import me.asiimwedismas.startelecom.core.data.repository.AccessoryRepository
-import me.asiimwedismas.startelecom.core.data.repository.AccessoryRepositoryImpl
-import me.asiimwedismas.startelecom.core.data.repository.StaffMemberRepository
-import me.asiimwedismas.startelecom.core.data.repository.StaffMemberRepositoryImpl
+import me.asiimwedismas.startelecom.core.data.repository.*
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -39,13 +36,8 @@ interface DataModule {
         repository: AccessoryRepositoryImpl
     ): AccessoryRepository
 
-//    @Binds
-//    fun bindsAccessoriesRepository(
-//        repository: OfflineFirstAuthorsRepository
-//    ): AuthorsRepository
-//
-//    @Binds
-//    fun bindsNewsResourceRepository(
-//        newsRepository: OfflineFirstNewsRepository
-//    ): NewsRepository
+    @Binds
+    fun bindsDebitsRepository(
+        repository: DebitsRepositoryImpl
+    ): DebitsRepository
 }
