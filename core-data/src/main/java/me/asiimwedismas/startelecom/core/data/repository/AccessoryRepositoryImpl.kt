@@ -1,5 +1,6 @@
 package me.asiimwedismas.startelecom.core.data.repository
 
+import androidx.lifecycle.LiveData
 import me.asiimwedismas.startelecom.core.common.Resource
 import me.asiimwedismas.startelecom.core.database.dao.AccessoryDao
 import me.asiimwedismas.startelecom.core.model.Accessory
@@ -26,7 +27,7 @@ class AccessoryRepositoryImpl @Inject constructor(
         TODO("Not yet implemented")
     }
 
-    override suspend fun getAllAccessories(): Resource<List<Accessory>> {
+    override fun getAllAccessories(): LiveData<List<Accessory>> {
         TODO("Not yet implemented")
     }
 }

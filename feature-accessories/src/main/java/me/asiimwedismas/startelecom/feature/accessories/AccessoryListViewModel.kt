@@ -12,16 +12,10 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AccessoryListViewModel @Inject constructor(
-    private val accessoryRepository: AccessoryRepository
+    private val repository: AccessoryRepository
 ) : ViewModel() {
 
-    val accessories: LiveData<List<Accessory>> = MutableLiveData(
-        mutableListOf(
-            Accessory(name = "Charger"),
-            Accessory(name = "Battery"),
-            Accessory(name = "Flash 4gb"),
-        )
-    )
+    val accessories: LiveData<List<Accessory>> = repository.getAllAccessories()
 
     private val _showNewAccessoryDialog = MutableLiveData(false)
     val showNewAccessoryDialog: LiveData<Boolean> = _showNewAccessoryDialog
@@ -50,7 +44,7 @@ class AccessoryListViewModel @Inject constructor(
 
     fun deleteAccessory(swipedAccessory: Accessory) {
         viewModelScope.launch {
-            accessoryRepository.deleteAccessory(swipedAccessory)
+            repository.deleteAccessory(swipedAccessory)
         }
     }
 
@@ -71,7 +65,7 @@ class AccessoryListViewModel @Inject constructor(
             }
 
             viewModelScope.launch {
-                accessoryRepository.saveAccessory(
+                repository.saveAccessory(
                     Accessory(name = it)
                 )
                 _errorNewAccessory.value = ""

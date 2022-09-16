@@ -1,5 +1,6 @@
 package me.asiimwedismas.startelecom.core.data.repository
 
+import androidx.lifecycle.LiveData
 import me.asiimwedismas.startelecom.core.common.Resource
 import me.asiimwedismas.startelecom.core.model.Accessory
 
@@ -13,5 +14,5 @@ interface AccessoryRepository {
 
     suspend fun deleteAccessory(accessory: Accessory): Resource<Boolean>
 
-    suspend fun getAllAccessories(): Resource<List<Accessory>>
+    fun getAllAccessories(): LiveData<List<Accessory>>
 }
