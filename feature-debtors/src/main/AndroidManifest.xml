@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="me.asiimwedismas.startelecom.feature.debtors">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="me.asiimwedismas.startelecom.feature.debtors">
+
+    <application android:theme="@style/Theme.STApp">
+        <activity
+            android:name=".DebitsListActivity"
+            android:label="@string/title_activity_debits_list"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="me.asiimwedismas.startelecom.feature.debtors.open" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
 
 </manifest>
